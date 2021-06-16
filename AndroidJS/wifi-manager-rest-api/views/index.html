@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Webview Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="../assets/bootstrap.min.css">
+
+	<script src="../assets/vue.js"></script>
+	<script type="text/javascript" src="../node_modules/androidjs/lib/androidjs.js"></script>
+</head>
+
+<style>
+	.app{
+		font-size:30px;
+	}
+</style>
+
+<body>
+
+<!-- body container -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Gestor Wifi ESP</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Escanear Dispositivos <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="management.html">Gestionar Esp Wifi</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="app" class = "app">
+	<div class="card" style="margin: 10px">
+	  <div class="card-body">
+	    <h6 class="card-subtitle text-muted"><img class="w-50" src="../assets/img/udb_brand.png"><img class="w-50" src="../assets/img/iiie_brand.png"></h6>
+	    
+	  </div>
+	</div>
+	<div class="card" style="margin: 10px">
+	  <div class="card-body">
+	    <button class="btn btn-info" v-on:click="updateNetworks()">Escanear Dispositivos</button>
+	  </div>
+	</div>
+	<div class="list-group" style="margin-right: 10px;margin-left: 10px">
+        <template v-for="network in networks">
+            <div class="list-group-item">
+                <div class="card-body">
+                    <h5 v-on:click="activeNetwork(network.SSID)" class="card-title">{{network.SSID}}</h5>
+                    <div v-if="network.isActive" class="card-body">
+                        <input type="password" class="form-control" id="net-passwd"/>
+                        <button v-on:click="connectNetwork(network.SSID)" type="button" class="btn btn-success">Conectar</button>
+                    </div>
+                </div>
+            </div>
+        </template>
+	</div>
+</div>
+
+<script type="text/javascript" src = "../assets/devices.js"></script>
+<script src="../assets/jquery-3.3.1.slim.min.js"></script>
+<script src="../assets/popper.min.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
+<style type="text/css">
+  html, body {
+    height: 100%;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .display-3 {
+    font-size: 2.0rem;
+  }
+
+  .jumbotron {
+    background: #fff;
+  }
+
+</style>
+<script type="text/javascript">
+	function toggle_popover() {
+		$('#popover').popover('toggle')
+	}
+	
+	
+</script>
+</body>
+
+</html>

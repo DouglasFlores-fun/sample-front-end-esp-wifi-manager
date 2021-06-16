@@ -1,2 +1,2 @@
 # sample-front-end-esp-wifi-manager
-Front end samples for esp wifi manager rest api
+Some samples front-end for esp wifi manager, available at: [Samples](https://github.com/DouglasFlores-fun/esp-wifi-manager-rest-api)
