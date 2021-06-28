@@ -30,7 +30,7 @@ new Vue({
         },
         connectNetwork: function(ssid){
             const passwd = document.getElementById("net-passwd").value;
-            app.toast.show(passwd, 1);
+            app.toast.show(ssid, 1);
             app.wifi.disconnect();
             app.wifi.connect(ssid, passwd);
         },
